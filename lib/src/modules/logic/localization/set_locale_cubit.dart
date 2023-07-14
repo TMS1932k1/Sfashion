@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:s_fashion/src/localization/l10n.dart';
-import 'package:s_fashion/src/modules/logic/set_locale_state.dart';
+import 'package:s_fashion/src/modules/logic/localization/set_locale_state.dart';
 
 class SetLocaleCubit extends Cubit<SetLocaleState> {
   SetLocaleCubit() : super(SetLocaleState(locale: L10n.all.first));
