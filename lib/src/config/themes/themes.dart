@@ -7,10 +7,14 @@ class XTheme {
         colorScheme: const ColorScheme.light().copyWith(
           primary: MyColors.colorPrimary,
           onBackground: MyColors.colorBlack,
+          surface: MyColors.colorGray,
+          error: MyColors.colorRed,
         ),
         textTheme: TextTheme(
           labelMedium: Style.labelMedium,
+          labelSmall: Style.labelSmall,
           bodyMedium: Style.bodyMedium,
+          bodySmall: Style.bodySmall,
         ),
       );
   static ThemeData dark() => ThemeData.dark();

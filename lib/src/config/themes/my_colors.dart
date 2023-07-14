@@ -6,5 +6,7 @@ class MyColors {
   static Color colorBackground = HexColor('#e5e5e5');
   static Color colorBlack = HexColor('#000000');
   static Color colorWhile = HexColor('#ffffff');
+  static Color colorGray = HexColor('#777777');
   static Color colorTransparent = Colors.transparent;
+  static Color colorRed = Colors.red;
 }
