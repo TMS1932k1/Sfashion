@@ -19,14 +19,14 @@ class AuthQuery {
       );
 
       if (response.statusCode == 200) {
-        logger.i(response.data);
+        //logger.i(response.data);
         if (response.data != null) {
           final user = response.data['data']['user'];
           return AuthResponse.fromJSON(user);
         }
       }
     } on DioException catch (e) {
-      logger.e(e.response.toString());
+      //logger.e(e.response.toString());
       if (e.response != null) {
         return AuthResponse.error(e.response!.data['message']);
       }
@@ -54,14 +54,14 @@ class AuthQuery {
       );
 
       if (response.statusCode == 201) {
-        logger.i(response.data);
+        //logger.i(response.data);
         if (response.data != null) {
           final user = response.data['data']['user'];
           return AuthResponse.fromJSON(user);
         }
       }
     } on DioException catch (e) {
-      logger.e(e.response.toString());
+      //logger.e(e.response.toString());
       if (e.response != null) {
         return AuthResponse.error(e.response!.data['message']);
       }

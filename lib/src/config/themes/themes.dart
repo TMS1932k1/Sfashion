@@ -11,6 +11,7 @@ class XTheme {
           error: MyColors.colorRed,
         ),
         textTheme: TextTheme(
+          labelLarge: Style.labelLarge,
           labelMedium: Style.labelMedium,
           labelSmall: Style.labelSmall,
           bodyMedium: Style.bodyMedium,

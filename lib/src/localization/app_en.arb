@@ -15,5 +15,10 @@
     "invalid_password": "Password must have more 8 chars (numbers and chars)",
     "confirm_password": "Confirm password",
     "hint_confirm_password": "Please confirm password",
-    "invalid_confirm_password": "Please confirm your password"
+    "invalid_confirm_password": "Please confirm your password",
+    "hint_search": "Search product's name",
+    "sale": "Sale",
+    "get_more": "Get More",
+    "category": "Category",
+    "arrival_products": "Arrival products"
 }

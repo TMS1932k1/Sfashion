@@ -15,5 +15,10 @@
     "invalid_password": "Mật khẩu có ít nhất 8 kí tự (số và chữ)",
     "confirm_password": "Xác nhận mật khẩu",
     "hint_confirm_password": "Hãy xác nhận mật khẩu",
-    "invalid_confirm_password": "Hãy xác nhận lại mặt khẩu của bạn"
+    "invalid_confirm_password": "Hãy xác nhận lại mặt khẩu của bạn",
+    "hint_search": "Tìm kiếm tên sản phấm",
+    "sale": "Giảm giá",
+    "get_more": "Chi tiết",
+    "category": "Danh mục",
+    "arrival_products": "Sản phẩm mới"
 }
