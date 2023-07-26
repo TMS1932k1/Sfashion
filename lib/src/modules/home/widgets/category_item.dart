@@ -20,10 +20,9 @@ class CategoryItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: onClick != null ? () => onClick!(category) : null,
-      child: Container(
+      child: SizedBox(
         width: 120,
-        height: 160,
-        margin: const EdgeInsets.only(right: Properties.kPaddingSmall),
+        height: 95,
         child: Card(
           child: ClipRRect(
             borderRadius: BorderRadius.circular(Properties.kRadiusMedium),
@@ -33,7 +32,7 @@ class CategoryItem extends StatelessWidget {
                 FadeInImage(
                   placeholder: const AssetImage(MyImages.imgPlaceHodler),
                   image: NetworkImage(
-                    BaseUrl.imgCategoryBaseUrl + category.imageCover,
+                    BaseUrl.imgCategory + category.imageCover,
                   ),
                   fit: BoxFit.cover,
                 ),
@@ -45,10 +44,10 @@ class CategoryItem extends StatelessWidget {
                       end: Alignment.bottomCenter,
                     ),
                   ),
-                  alignment: Alignment.bottomCenter,
-                  padding: const EdgeInsets.only(
-                    bottom: Properties.kPaddingSmall,
+                  padding: const EdgeInsets.all(
+                    Properties.kPaddingSmall,
                   ),
+                  alignment: Alignment.bottomCenter,
                   child: Text(
                     category.name,
                     style: Theme.of(context).textTheme.bodyMedium,

@@ -6,6 +6,7 @@ import 'package:s_fashion/src/localization/l10n.dart';
 import 'package:s_fashion/src/modules/auth/logic/auth_bloc.dart';
 import 'package:s_fashion/src/modules/auth/screen/auth_screen.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:s_fashion/src/modules/home/logic/arrival_product/arrival_product_bloc.dart';
 import 'package:s_fashion/src/modules/home/logic/category/category_bloc.dart';
 import 'package:s_fashion/src/modules/home/logic/event/event_sale_bloc.dart';
 import 'package:s_fashion/src/modules/home/screen/home_screen.dart';
@@ -26,6 +27,7 @@ class MyApp extends StatelessWidget {
         BlocProvider(create: (context) => AuthReponseCubit()),
         BlocProvider(create: (context) => EventSaleBloc()),
         BlocProvider(create: (context) => CategoryBloc()),
+        BlocProvider(create: (context) => ArrivalProductBloc()),
       ],
       child: BlocBuilder<SetLocaleCubit, SetLocaleState>(
         builder: (context, loacleState) => MaterialApp(

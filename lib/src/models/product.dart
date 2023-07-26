@@ -3,15 +3,15 @@ class Product {
   final String name;
   final String imageCover;
   final List<String> images;
-  final double price;
+  final num price;
   final String material;
   final List<String> sizes;
-  final double ratingsAverage;
-  final double ratingsQuantity;
+  final num ratingsAverage;
+  final num ratingsQuantity;
   final String idCategory;
-  final double saleOff;
+  final num saleOff;
   final String description;
-  final int sold;
+  final num sold;
 
   const Product({
     required this.id,
@@ -33,7 +33,11 @@ class Product {
       : id = map['_id'],
         name = map['name'],
         imageCover = map['imageCover'],
-        images = map['images'],
+        images = (map['images'] as List)
+            .map(
+              (image) => image.toString(),
+            )
+            .toList(),
         price = map['price'],
         material = map['material'],
         description = map['description'],
@@ -41,6 +45,10 @@ class Product {
         ratingsAverage = map['ratingsAverage'],
         ratingsQuantity = map['ratingsQuantity'],
         saleOff = map['saleOff'],
-        sizes = map['sizes'],
+        sizes = (map['sizes'] as List)
+            .map(
+              (image) => image.toString(),
+            )
+            .toList(),
         sold = map['sold'];
 }
