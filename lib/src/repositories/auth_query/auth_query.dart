@@ -1,5 +1,6 @@
 import 'package:dio/dio.dart';
 import 'package:logger/logger.dart';
+import 'package:s_fashion/src/constants/base_url.dart';
 import 'package:s_fashion/src/models/auth_response.dart';
 
 final dio = Dio();
@@ -13,20 +14,17 @@ class AuthQuery {
     };
 
     try {
-      final response = await dio.post(
-        "http://10.0.2.2:5000/api/user/login",
-        data: data,
-      );
+      final response = await dio.post(BaseUrl.authLogin, data: data);
 
       if (response.statusCode == 200) {
-        logger.i(response.data);
+        //logger.i(response.data);
         if (response.data != null) {
           final user = response.data['data']['user'];
           return AuthResponse.fromJSON(user);
         }
       }
     } on DioException catch (e) {
-      logger.e(e.response.toString());
+      //logger.e(e.response.toString());
       if (e.response != null) {
         return AuthResponse.error(e.response!.data['message']);
       }
@@ -48,20 +46,17 @@ class AuthQuery {
     };
 
     try {
-      final response = await dio.post(
-        "http://10.0.2.2:5000/api/user/signup",
-        data: data,
-      );
+      final response = await dio.post(BaseUrl.authSignUp, data: data);
 
       if (response.statusCode == 201) {
-        logger.i(response.data);
+        //logger.i(response.data);
         if (response.data != null) {
           final user = response.data['data']['user'];
           return AuthResponse.fromJSON(user);
         }
       }
     } on DioException catch (e) {
-      logger.e(e.response.toString());
+      //logger.e(e.response.toString());
       if (e.response != null) {
         return AuthResponse.error(e.response!.data['message']);
       }

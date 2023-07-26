@@ -233,7 +233,7 @@ class _FormInputState extends State<FormInput> with TickerProviderStateMixin {
                 const SizedBox(height: Properties.kPaddingLarge),
                 BlocBuilder<AuthBloc, AuthState>(
                   builder: (context, state) {
-                    if (state.isLoading) {
+                    if (state is LoadingState) {
                       return const CircularProgressIndicator();
                     }
 
