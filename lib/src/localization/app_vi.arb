@@ -21,5 +21,8 @@
     "get_more": "Chi tiết",
     "category": "Danh mục",
     "arrival_products": "Sản phẩm mới",
-    "more": "Xem thêm"
+    "more": "Xem thêm",
+    "trend_products": "Sản phẩm xu hướng",
+    "sale_products": "Sản phẩm giảm giá",
+    "hot_products": "Sản phẩm hot"
 }

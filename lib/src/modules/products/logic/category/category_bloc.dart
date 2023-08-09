@@ -1,6 +1,6 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:s_fashion/src/modules/home/logic/category/category_event.dart';
-import 'package:s_fashion/src/modules/home/logic/category/category_state.dart';
+import 'package:s_fashion/src/modules/products/logic/category/category_event.dart';
+import 'package:s_fashion/src/modules/products/logic/category/category_state.dart';
 import 'package:s_fashion/src/repositories/category_query/category_query.dart';
 
 class CategoryBloc extends Bloc<CategoryEvent, CategoryState> {

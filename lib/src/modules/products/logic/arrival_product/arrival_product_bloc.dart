@@ -1,6 +1,6 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:s_fashion/src/modules/home/logic/arrival_product/arrival_product_event.dart';
-import 'package:s_fashion/src/modules/home/logic/arrival_product/arrival_product_state.dart';
+import 'package:s_fashion/src/modules/products/logic/arrival_product/arrival_product_event.dart';
+import 'package:s_fashion/src/modules/products/logic/arrival_product/arrival_product_state.dart';
 import 'package:s_fashion/src/repositories/product_query/arrival_product_query.dart';
 
 class ArrivalProductBloc

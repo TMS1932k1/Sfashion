@@ -21,5 +21,8 @@
     "get_more": "Get More",
     "category": "Category",
     "arrival_products": "Arrival products",
-    "more": "More"
+    "more": "More",
+    "trend_products": "Trend products",
+    "sale_products": "Sale products",
+    "hot_products": "Hot products"
 }

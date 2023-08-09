@@ -1,6 +1,6 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:s_fashion/src/models/auth_response.dart';
-import 'package:s_fashion/src/modules/logic/auth/auth_reponse_state.dart';
+import 'package:s_fashion/src/modules/comon_logic/auth/auth_reponse_state.dart';
 
 class AuthReponseCubit extends Cubit<AuthReponseState> {
   AuthReponseCubit() : super(const AuthReponseState());

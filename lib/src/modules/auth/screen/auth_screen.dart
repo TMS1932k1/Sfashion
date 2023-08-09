@@ -7,7 +7,7 @@ import 'package:s_fashion/src/constants/properties.dart';
 import 'package:s_fashion/src/modules/auth/logic/auth_bloc.dart';
 import 'package:s_fashion/src/modules/auth/logic/auth_state.dart';
 import 'package:s_fashion/src/modules/auth/widgets/form_input.dart';
-import 'package:s_fashion/src/modules/logic/auth/auth_reponse_cubit.dart';
+import 'package:s_fashion/src/modules/comon_logic/auth/auth_reponse_cubit.dart';
 
 class AuthScreen extends StatelessWidget {
   const AuthScreen({super.key});

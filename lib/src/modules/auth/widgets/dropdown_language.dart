@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:s_fashion/src/localization/l10n.dart';
-import 'package:s_fashion/src/modules/logic/localization/set_locale_cubit.dart';
+import 'package:s_fashion/src/modules/comon_logic/localization/set_locale_cubit.dart';
 
 class DropDownLanguage extends StatefulWidget {
   const DropDownLanguage({super.key});

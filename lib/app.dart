@@ -4,16 +4,17 @@ import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:s_fashion/src/config/themes/themes.dart';
 import 'package:s_fashion/src/localization/l10n.dart';
 import 'package:s_fashion/src/modules/auth/logic/auth_bloc.dart';
-import 'package:s_fashion/src/modules/auth/screen/auth_screen.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'package:s_fashion/src/modules/home/logic/arrival_product/arrival_product_bloc.dart';
-import 'package:s_fashion/src/modules/home/logic/category/category_bloc.dart';
-import 'package:s_fashion/src/modules/home/logic/event/event_sale_bloc.dart';
-import 'package:s_fashion/src/modules/home/screen/home_screen.dart';
-import 'package:s_fashion/src/modules/logic/auth/auth_reponse_cubit.dart';
-import 'package:s_fashion/src/modules/logic/auth/auth_reponse_state.dart';
-import 'package:s_fashion/src/modules/logic/localization/set_locale_cubit.dart';
-import 'package:s_fashion/src/modules/logic/localization/set_locale_state.dart';
+import 'package:s_fashion/src/modules/products/logic/arrival_product/arrival_product_bloc.dart';
+import 'package:s_fashion/src/modules/products/logic/category/category_bloc.dart';
+import 'package:s_fashion/src/modules/products/logic/event/event_sale_bloc.dart';
+import 'package:s_fashion/src/modules/products/logic/hot_product/hot_product_bloc.dart';
+import 'package:s_fashion/src/modules/products/logic/sale_product/sale_product_bloc.dart';
+import 'package:s_fashion/src/modules/products/logic/trend_product/trend_product_bloc.dart';
+import 'package:s_fashion/src/modules/products/screen/products_screen.dart';
+import 'package:s_fashion/src/modules/comon_logic/auth/auth_reponse_cubit.dart';
+import 'package:s_fashion/src/modules/comon_logic/localization/set_locale_cubit.dart';
+import 'package:s_fashion/src/modules/comon_logic/localization/set_locale_state.dart';
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
@@ -28,15 +29,18 @@ class MyApp extends StatelessWidget {
         BlocProvider(create: (context) => EventSaleBloc()),
         BlocProvider(create: (context) => CategoryBloc()),
         BlocProvider(create: (context) => ArrivalProductBloc()),
+        BlocProvider(create: (context) => TrendProductBloc()),
+        BlocProvider(create: (context) => SaleProductBloc()),
+        BlocProvider(create: (context) => HotProductBloc()),
       ],
       child: BlocBuilder<SetLocaleCubit, SetLocaleState>(
-        builder: (context, loacleState) => MaterialApp(
+        builder: (context, localeState) => MaterialApp(
           title: 'SFashion',
           debugShowCheckedModeBanner: false,
           theme: XTheme.light(),
           darkTheme: XTheme.dark(),
           home: const SafeArea(child: HomeScreen()),
-          locale: loacleState.locale,
+          locale: localeState.locale,
           supportedLocales: L10n.all,
           localizationsDelegates: const [
             AppLocalizations.delegate,

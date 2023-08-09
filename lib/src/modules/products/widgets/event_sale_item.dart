@@ -4,7 +4,7 @@ import 'package:s_fashion/src/config/themes/styles.dart';
 import 'package:s_fashion/src/constants/properties.dart';
 import 'package:s_fashion/src/models/event_sale.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'package:s_fashion/src/modules/home/widgets/event_sale_buttom.dart';
+import 'package:s_fashion/src/modules/products/widgets/event_sale_button.dart';
 
 class EventSaleItem extends StatelessWidget {
   const EventSaleItem({

@@ -18,11 +18,15 @@ class CategoryItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final widthDevice = MediaQuery.of(context).size.width;
+    final double widthItem = widthDevice >= 700 ? 170 : 120;
+    final double heightItem = widthDevice >= 700 ? 230 : 95;
+
     return GestureDetector(
       onTap: onClick != null ? () => onClick!(category) : null,
       child: SizedBox(
-        width: 120,
-        height: 95,
+        width: widthItem,
+        height: heightItem,
         child: Card(
           child: ClipRRect(
             borderRadius: BorderRadius.circular(Properties.kRadiusMedium),

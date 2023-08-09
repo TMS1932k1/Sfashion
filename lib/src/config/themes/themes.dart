@@ -7,6 +7,7 @@ class XTheme {
         colorScheme: const ColorScheme.light().copyWith(
           primary: MyColors.colorPrimary,
           onBackground: MyColors.colorBlack,
+          secondary: MyColors.colorBrown,
           surface: MyColors.colorGray,
           error: MyColors.colorRed,
         ),
