@@ -33,6 +33,5 @@ class _CartIconState extends State<CartIcon> {
         ),
       ),
     );
-    ;
   }
 }

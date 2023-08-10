@@ -1,3 +1,4 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:s_fashion/src/config/themes/my_colors.dart';
@@ -9,6 +10,7 @@ import 'package:s_fashion/src/modules/auth/logic/auth_state.dart';
 import 'package:s_fashion/src/modules/auth/widgets/form_input.dart';
 import 'package:s_fashion/src/modules/comon_logic/auth/auth_reponse_cubit.dart';
 
+@RoutePage()
 class AuthScreen extends StatelessWidget {
   const AuthScreen({super.key});
 

@@ -1,4 +1,6 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
+import 'package:s_fashion/src/config/routes/app_router.dart';
 import 'package:s_fashion/src/config/themes/my_colors.dart';
 import 'package:s_fashion/src/constants/properties.dart';
 import 'package:s_fashion/src/models/product.dart';
@@ -19,6 +21,10 @@ class ListSpecialProdcuts extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    void onSelectProduct(Product product) {
+      context.router.push(DetailRoute(product: product));
+    }
+
     return Container(
       width: double.infinity,
       margin: const EdgeInsets.only(top: Properties.kPaddingMedium),
@@ -58,6 +64,7 @@ class ListSpecialProdcuts extends StatelessWidget {
                       (product) => ProductItem(
                         key: UniqueKey(),
                         product: product,
+                        onTapped: onSelectProduct,
                       ),
                     )
                     .toList(),

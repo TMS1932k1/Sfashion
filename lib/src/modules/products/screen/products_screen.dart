@@ -1,3 +1,4 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:s_fashion/src/config/themes/styles.dart';
@@ -28,8 +29,9 @@ import 'package:s_fashion/src/modules/products/widgets/list_special_products.dar
 import 'package:s_fashion/src/widgets/loading_page.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
-class HomeScreen extends StatelessWidget {
-  const HomeScreen({super.key});
+@RoutePage()
+class ProductsScreen extends StatelessWidget {
+  const ProductsScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
