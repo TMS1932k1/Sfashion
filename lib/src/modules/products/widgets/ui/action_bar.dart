@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:s_fashion/src/modules/products/widgets/cart_icon.dart';
-import 'package:s_fashion/src/modules/products/widgets/search_input.dart';
+import 'package:s_fashion/src/modules/products/widgets/ui/cart_icon.dart';
+import 'package:s_fashion/src/modules/products/widgets/ui/search_input.dart';
 
 class ActionBar extends StatefulWidget {
   const ActionBar({super.key});

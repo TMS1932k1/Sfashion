@@ -7,7 +7,7 @@ import 'package:s_fashion/src/modules/auth/logic/auth_bloc.dart';
 import 'package:s_fashion/src/modules/auth/logic/auth_event.dart';
 import 'package:s_fashion/src/modules/auth/logic/auth_state.dart';
 import 'package:s_fashion/src/modules/auth/widgets/dropdown_language.dart';
-import 'package:s_fashion/src/modules/auth/widgets/input_field.dart';
+import 'package:s_fashion/src/modules/auth/widgets/form_input/input_field.dart';
 import 'package:s_fashion/src/widgets/submit_buttom.dart';
 
 class FormInput extends StatefulWidget {

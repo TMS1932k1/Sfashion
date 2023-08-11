@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:s_fashion/src/constants/properties.dart';
 import 'package:s_fashion/src/models/category.dart';
-import 'package:s_fashion/src/modules/products/widgets/category_item.dart';
-import 'package:s_fashion/src/modules/products/widgets/title_sesion.dart';
+import 'package:s_fashion/src/modules/products/widgets/list_categories/category_item.dart';
+import 'package:s_fashion/src/modules/products/widgets/ui/title_sesion.dart';
 
 class LiistCategories extends StatelessWidget {
   const LiistCategories({

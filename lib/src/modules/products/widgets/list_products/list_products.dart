@@ -3,9 +3,9 @@ import 'package:flutter/material.dart';
 import 'package:s_fashion/src/config/routes/app_router.dart';
 import 'package:s_fashion/src/constants/properties.dart';
 import 'package:s_fashion/src/models/product.dart';
-import 'package:s_fashion/src/modules/products/widgets/product_item.dart';
-import 'package:s_fashion/src/modules/products/widgets/text_more.dart';
-import 'package:s_fashion/src/modules/products/widgets/title_sesion.dart';
+import 'package:s_fashion/src/modules/products/widgets/list_products/product_item.dart';
+import 'package:s_fashion/src/modules/products/widgets/ui/text_more.dart';
+import 'package:s_fashion/src/modules/products/widgets/ui/title_sesion.dart';
 
 class ListProducts extends StatelessWidget {
   const ListProducts({
@@ -47,7 +47,7 @@ class ListProducts extends StatelessWidget {
                     (product) => ProductItem(
                       key: UniqueKey(),
                       product: product,
-                      onTapped: onSelectProduct,
+                      onSelected: onSelectProduct,
                     ),
                   )
                   .toList(),

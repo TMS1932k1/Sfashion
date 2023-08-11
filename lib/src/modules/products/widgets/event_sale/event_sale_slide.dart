@@ -1,7 +1,7 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:s_fashion/src/models/event_sale.dart';
-import 'package:s_fashion/src/modules/products/widgets/event_sale_item.dart';
+import 'package:s_fashion/src/modules/products/widgets/event_sale/event_sale_item.dart';
 
 class EventSaleSlide extends StatelessWidget {
   const EventSaleSlide({

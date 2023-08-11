@@ -21,11 +21,11 @@ import 'package:s_fashion/src/modules/products/logic/sale_product/sale_product_s
 import 'package:s_fashion/src/modules/products/logic/trend_product/trend_product_bloc.dart';
 import 'package:s_fashion/src/modules/products/logic/trend_product/trend_product_event.dart';
 import 'package:s_fashion/src/modules/products/logic/trend_product/trend_product_state.dart';
-import 'package:s_fashion/src/modules/products/widgets/action_bar.dart';
-import 'package:s_fashion/src/modules/products/widgets/event_sale_slide.dart';
-import 'package:s_fashion/src/modules/products/widgets/list_categories.dart';
-import 'package:s_fashion/src/modules/products/widgets/list_products.dart';
-import 'package:s_fashion/src/modules/products/widgets/list_special_products.dart';
+import 'package:s_fashion/src/modules/products/widgets/ui/action_bar.dart';
+import 'package:s_fashion/src/modules/products/widgets/event_sale/event_sale_slide.dart';
+import 'package:s_fashion/src/modules/products/widgets/list_categories/list_categories.dart';
+import 'package:s_fashion/src/modules/products/widgets/list_products/list_products.dart';
+import 'package:s_fashion/src/modules/products/widgets/list_products/list_special_products.dart';
 import 'package:s_fashion/src/widgets/loading_page.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
-import 'package:s_fashion/src/constants/base_url.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:s_fashion/src/config/themes/my_colors.dart';
 import 'package:s_fashion/src/constants/my_images.dart';
 import 'package:s_fashion/src/constants/properties.dart';
 import 'package:s_fashion/src/models/product.dart';
@@ -10,20 +11,22 @@ class ProductItem extends StatelessWidget {
   const ProductItem({
     super.key,
     required this.product,
-    this.onTapped,
+    this.onSelected,
+    this.onAddCart,
   });
 
   final Product product;
-  final Function(Product)? onTapped;
+  final Function(Product)? onSelected;
+  final Function(Product)? onAddCart;
 
   @override
   Widget build(BuildContext context) {
     final widthDevice = MediaQuery.of(context).size.width;
-    final double widthItem = widthDevice >= 700 ? 210 : 160;
-    final double heightItem = widthDevice >= 700 ? 325 : 285;
+    final double widthItem = widthDevice >= 700 ? 230 : 180;
+    final double heightItem = widthDevice >= 700 ? 365 : 325;
 
-    return GestureDetector(
-      onTap: onTapped == null ? null : () => onTapped!(product),
+    return InkWell(
+      onTap: onSelected == null ? null : () => onSelected!(product),
       child: Container(
         width: widthItem,
         height: heightItem,
@@ -48,7 +51,7 @@ class ProductItem extends StatelessWidget {
                     FadeInImage(
                       placeholder: const AssetImage(MyImages.imgPlaceHodler),
                       image: NetworkImage(
-                        BaseUrl.imgProduct + product.imageCover,
+                        Utils.getUrlImage(product.imageCover),
                       ),
                       fit: BoxFit.cover,
                     ),
@@ -104,38 +107,61 @@ class ProductItem extends StatelessWidget {
                     const SizedBox(height: Properties.kPaddingSmall),
                     Row(
                       children: [
-                        Text(
-                          Utils.convertCurrencyFormat(
-                            product.price * (1 - product.saleOff / 100),
-                          ),
-                          style: Theme.of(context)
-                              .textTheme
-                              .bodyMedium!
-                              .copyWith(
-                                color:
-                                    Theme.of(context).colorScheme.onBackground,
-                                fontWeight: FontWeight.bold,
-                              ),
-                          maxLines: 1,
-                          overflow: TextOverflow.ellipsis,
-                        ),
-                        if (product.saleOff > 0)
-                          const SizedBox(width: Properties.kPaddingSmall),
-                        if (product.saleOff > 0)
-                          Text(
-                            Utils.convertCurrencyFormat(
-                              product.price.toDouble(),
-                            ),
-                            style:
-                                Theme.of(context).textTheme.bodySmall!.copyWith(
+                        Expanded(
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                Utils.convertCurrencyFormat(
+                                  product.price * (1 - product.saleOff / 100),
+                                ),
+                                style: Theme.of(context)
+                                    .textTheme
+                                    .bodyMedium!
+                                    .copyWith(
                                       color: Theme.of(context)
                                           .colorScheme
                                           .onBackground,
-                                      decoration: TextDecoration.lineThrough,
+                                      fontWeight: FontWeight.bold,
                                     ),
-                            maxLines: 1,
-                            overflow: TextOverflow.ellipsis,
+                                maxLines: 1,
+                                overflow: TextOverflow.ellipsis,
+                              ),
+                              if (product.saleOff > 0)
+                                Text(
+                                  Utils.convertCurrencyFormat(
+                                    product.price.toDouble(),
+                                  ),
+                                  style: Theme.of(context)
+                                      .textTheme
+                                      .bodySmall!
+                                      .copyWith(
+                                        color: Theme.of(context)
+                                            .colorScheme
+                                            .onBackground,
+                                        decoration: TextDecoration.lineThrough,
+                                      ),
+                                  maxLines: 1,
+                                  overflow: TextOverflow.ellipsis,
+                                ),
+                            ],
                           ),
+                        ),
+                        InkWell(
+                          onTap: onAddCart == null
+                              ? null
+                              : () => onAddCart!(product),
+                          child: Container(
+                            padding: const EdgeInsets.all(
+                              Properties.kPaddingSmall,
+                            ),
+                            child: FaIcon(
+                              FontAwesomeIcons.cartShopping,
+                              size: Properties.sizeStar,
+                              color: MyColors.colorOrrage,
+                            ),
+                          ),
+                        ),
                       ],
                     ),
                   ],

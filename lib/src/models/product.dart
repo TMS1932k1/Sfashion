@@ -13,6 +13,8 @@ class Product {
   final String description;
   final num sold;
 
+  List<String> get allImages => [imageCover, ...images];
+
   const Product({
     required this.id,
     required this.name,
