@@ -8,4 +8,5 @@ class Properties {
   static const double kRadiusLarge = 16.0;
 
   static const double sizeStar = 18.0;
+  static const double sizeIconButton = 22.0;
 }

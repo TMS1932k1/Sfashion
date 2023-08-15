@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:s_fashion/src/config/themes/my_colors.dart';
 import 'package:s_fashion/src/constants/my_images.dart';
 import 'package:s_fashion/src/constants/properties.dart';
 import 'package:s_fashion/src/models/product.dart';
 import 'package:s_fashion/src/utils/utils.dart';
+import 'package:s_fashion/src/widgets/rating_section.dart';
 
 class ProductItem extends StatelessWidget {
   const ProductItem({
@@ -75,18 +75,7 @@ class ProductItem extends StatelessWidget {
               ),
             ),
             const SizedBox(height: Properties.kPaddingSmall),
-            RatingBar.builder(
-              initialRating: product.ratingsQuantity.toDouble(),
-              direction: Axis.horizontal,
-              allowHalfRating: true,
-              itemCount: 5,
-              itemSize: Properties.sizeStar,
-              itemBuilder: (context, _) => const Icon(
-                Icons.star,
-                color: Colors.amber,
-              ),
-              onRatingUpdate: (rating) {},
-            ),
+            RatingSection(point: product.ratingsAverage.toDouble()),
             const SizedBox(height: Properties.kPaddingSmall),
             Expanded(
               child: Container(

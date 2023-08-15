@@ -3,14 +3,14 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:s_fashion/src/localization/l10n.dart';
 import 'package:s_fashion/src/modules/comon_logic/localization/set_locale_cubit.dart';
 
-class DropDownLanguage extends StatefulWidget {
-  const DropDownLanguage({super.key});
+class DropdownLanguage extends StatefulWidget {
+  const DropdownLanguage({super.key});
 
   @override
-  State<DropDownLanguage> createState() => _DropDownLanguageState();
+  State<DropdownLanguage> createState() => _DropdownLanguageState();
 }
 
-class _DropDownLanguageState extends State<DropDownLanguage> {
+class _DropdownLanguageState extends State<DropdownLanguage> {
   late Locale currentLocale;
 
   @override

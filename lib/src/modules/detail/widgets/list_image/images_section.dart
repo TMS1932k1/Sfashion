@@ -46,6 +46,7 @@ class ImagesSection extends StatelessWidget {
               options: CarouselOptions(
                 height: double.infinity,
                 viewportFraction: 1.0,
+                autoPlay: false,
                 onPageChanged: (index, reason) => setNewCurrentIndex(index),
               ),
               carouselController: controller,

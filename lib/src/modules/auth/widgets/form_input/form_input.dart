@@ -6,9 +6,9 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:s_fashion/src/modules/auth/logic/auth_bloc.dart';
 import 'package:s_fashion/src/modules/auth/logic/auth_event.dart';
 import 'package:s_fashion/src/modules/auth/logic/auth_state.dart';
-import 'package:s_fashion/src/modules/auth/widgets/dropdown_language.dart';
+import 'package:s_fashion/src/modules/auth/widgets/dropdown_button/dropdown_language.dart';
 import 'package:s_fashion/src/modules/auth/widgets/form_input/input_field.dart';
-import 'package:s_fashion/src/widgets/submit_buttom.dart';
+import 'package:s_fashion/src/widgets/submit_button.dart';
 
 class FormInput extends StatefulWidget {
   const FormInput({super.key});
@@ -168,7 +168,7 @@ class _FormInputState extends State<FormInput> with TickerProviderStateMixin {
                       color: Theme.of(context).colorScheme.onBackground,
                     ),
               ),
-              const DropDownLanguage(),
+              const DropdownLanguage(),
             ],
           ),
           const SizedBox(height: Properties.kPaddingMedium),

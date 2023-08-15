@@ -24,5 +24,11 @@
     "more": "More",
     "trend_products": "Trend products",
     "sale_products": "Sale products",
-    "hot_products": "Hot products"
+    "hot_products": "Hot products",
+    "amount": "Amount",
+    "sold": "Sold",
+    "material": "Material",
+    "buy_now": "Buy now",
+    "add_cart": "Add cart",
+    "description": "Description"
 }
