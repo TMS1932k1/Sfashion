@@ -51,7 +51,7 @@ class ProductItem extends StatelessWidget {
                     FadeInImage(
                       placeholder: const AssetImage(MyImages.imgPlaceHodler),
                       image: NetworkImage(
-                        Utils.getUrlImage(product.imageCover),
+                        Utils.getUrlImageProduct(product.imageCover),
                       ),
                       fit: BoxFit.cover,
                     ),

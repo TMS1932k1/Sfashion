@@ -1,11 +1,12 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:s_fashion/src/constants/properties.dart';
 import 'package:s_fashion/src/models/product.dart';
 import 'package:s_fashion/src/modules/detail/widgets/buttons_submit/buttons_submit.dart';
 import 'package:s_fashion/src/modules/detail/widgets/detail_body/detail_body.dart';
 import 'package:s_fashion/src/modules/detail/widgets/list_image/images_section.dart';
+import 'package:s_fashion/src/widgets/button_cart.dart';
+import 'package:s_fashion/src/widgets/dialog_add_cart.dart';
 
 @RoutePage()
 class DetailScreen extends StatelessWidget {
@@ -18,18 +19,17 @@ class DetailScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    void addCart(Product product) {
+      showDialog(
+        context: context,
+        builder: (context) => DialogAddCart(product: product),
+      );
+    }
+
     return Scaffold(
       appBar: AppBar(
         elevation: 0,
-        actions: [
-          IconButton(
-            onPressed: () {
-              // Navigate to Cart Screen
-            },
-            icon: const FaIcon(FontAwesomeIcons.cartShopping),
-            iconSize: 16,
-          ),
-        ],
+        actions: const [ButtonCart()],
       ),
       body: Column(
         mainAxisSize: MainAxisSize.max,
@@ -41,6 +41,7 @@ class DetailScreen extends StatelessWidget {
                   ImagesSection(images: product.allImages),
                   const SizedBox(height: Properties.kPaddingSmall),
                   DetailBody(
+                    idProduct: product.id,
                     nameProduct: product.name,
                     averageProduct: product.ratingsAverage.toDouble(),
                     quantityProduct: product.ratingsQuantity.toInt(),
@@ -55,7 +56,10 @@ class DetailScreen extends StatelessWidget {
               ),
             ),
           ),
-          const ButtonsSubmit(),
+          ButtonsSubmit(
+            addCart: () => addCart(product),
+            buyProduct: () {},
+          ),
         ],
       ),
     );

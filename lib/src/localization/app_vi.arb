@@ -25,10 +25,14 @@
     "trend_products": "Sản phẩm xu hướng",
     "sale_products": "Sản phẩm giảm giá",
     "hot_products": "Sản phẩm hot",
-    "amount": "số lượng",
+    "amount": "Số lượng",
     "sold": "Đã bán",
     "material": "Vật liệu",
     "buy_now": "Mua ngay",
     "add_cart": "Thêm giỏ hàng",
-    "description": "Mô tả"
+    "description": "Mô tả",
+    "review": "Đánh giá",
+    "close": "Đóng",
+    "sizes": "Kích thước",
+    "price": "GIá"
 }

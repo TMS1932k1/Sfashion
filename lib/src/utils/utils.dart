@@ -7,7 +7,11 @@ class Utils {
         .format(money);
   }
 
-  static String getUrlImage(String image) {
+  static String getUrlImageProduct(String image) {
     return BaseUrl.imgProduct + image;
+  }
+
+  static String getUrlImageUser(String image) {
+    return BaseUrl.imgUser + image;
   }
 }

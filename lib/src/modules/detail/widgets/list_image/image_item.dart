@@ -36,7 +36,7 @@ class ImageItem extends StatelessWidget {
         padding: isCurrent ? const EdgeInsets.all(2) : null,
         child: FadeInImage(
           placeholder: const AssetImage(MyImages.imgPlaceHodler),
-          image: NetworkImage(Utils.getUrlImage(image)),
+          image: NetworkImage(Utils.getUrlImageProduct(image)),
           fit: BoxFit.cover,
         ),
       ),

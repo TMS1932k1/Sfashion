@@ -1,16 +1,24 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:s_fashion/src/constants/properties.dart';
+import 'package:s_fashion/src/modules/detail/logic/load_reviews/reviews_bloc.dart';
+import 'package:s_fashion/src/modules/detail/logic/load_reviews/reviews_event.dart';
+import 'package:s_fashion/src/modules/detail/logic/load_reviews/reviews_state.dart';
 import 'package:s_fashion/src/modules/detail/widgets/detail_body/description_section.dart';
-import 'package:s_fashion/src/modules/detail/widgets/detail_body/divider_vertical.dart';
-import 'package:s_fashion/src/modules/detail/widgets/detail_body/sizes_bar.dart';
+import 'package:s_fashion/src/modules/detail/widgets/detail_body/review_section.dart';
+import 'package:s_fashion/src/modules/detail/widgets/detail_body/text_sale.dart';
+import 'package:s_fashion/src/modules/detail/widgets/ui/divider_vertical.dart';
+import 'package:s_fashion/src/modules/detail/widgets/ui/sizes_bar.dart';
 import 'package:s_fashion/src/utils/utils.dart';
+import 'package:s_fashion/src/widgets/loading_page.dart';
 import 'package:s_fashion/src/widgets/rating_section.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class DetailBody extends StatelessWidget {
   const DetailBody({
     super.key,
+    required this.idProduct,
     required this.nameProduct,
     this.averageProduct = 0,
     this.quantityProduct = 0,
@@ -22,6 +30,7 @@ class DetailBody extends StatelessWidget {
     required this.saleOff,
   });
 
+  final String idProduct;
   final String nameProduct;
   final double averageProduct;
   final int quantityProduct;
@@ -34,6 +43,8 @@ class DetailBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    BlocProvider.of<ReviewsBloc>(context).add(LoadReviewsEvent(idProduct));
+
     return Container(
       padding: const EdgeInsets.symmetric(
         horizontal: Properties.kPaddingSmall,
@@ -104,31 +115,9 @@ class DetailBody extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              Row(
-                crossAxisAlignment: CrossAxisAlignment.end,
-                children: [
-                  Text(
-                    Utils.convertCurrencyFormat(price * (1 - saleOff / 100)),
-                    style: Theme.of(context).textTheme.labelLarge!.copyWith(
-                          color: Theme.of(context).colorScheme.onBackground,
-                          fontWeight: FontWeight.bold,
-                        ),
-                    maxLines: 1,
-                    overflow: TextOverflow.ellipsis,
-                  ),
-                  if (saleOff > 0)
-                    const SizedBox(width: Properties.kPaddingSmall),
-                  if (saleOff > 0)
-                    Text(
-                      Utils.convertCurrencyFormat(price.toDouble()),
-                      style: Theme.of(context).textTheme.bodySmall!.copyWith(
-                            color: Theme.of(context).colorScheme.onBackground,
-                            decoration: TextDecoration.lineThrough,
-                          ),
-                      maxLines: 1,
-                      overflow: TextOverflow.ellipsis,
-                    ),
-                ],
+              TextSale(
+                price: price,
+                saleOff: saleOff,
               ),
               IconButton(
                 onPressed: () {},
@@ -141,6 +130,36 @@ class DetailBody extends StatelessWidget {
           ),
           const SizedBox(height: Properties.kPaddingLarge),
           DescriptionSection(description: description),
+          const SizedBox(height: Properties.kPaddingMedium),
+          Text(
+            '${AppLocalizations.of(context)!.review}:',
+            style: Theme.of(context).textTheme.labelSmall!.copyWith(
+                  color: Theme.of(context).colorScheme.onBackground,
+                ),
+          ),
+          BlocBuilder<ReviewsBloc, ReviewsState>(
+            builder: (context, state) {
+              if (state is LoadingReviewsState) {
+                return const LoadingPage();
+              }
+
+              if (state is LoadedReviewsState) {
+                var reviews = state.reponse!.reviews;
+                if (reviews!.isNotEmpty) {
+                  return ReviewSection(reviews: reviews);
+                } else {
+                  return Text(
+                    'Empty reviews',
+                    style: Theme.of(context).textTheme.bodySmall!.copyWith(
+                          color: Theme.of(context).colorScheme.surface,
+                        ),
+                  );
+                }
+              }
+
+              return Container();
+            },
+          ),
           const SizedBox(height: Properties.kPaddingMedium),
         ],
       ),

@@ -1,6 +1,7 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:s_fashion/src/config/routes/app_router.dart';
 import 'package:s_fashion/src/config/themes/styles.dart';
 import 'package:s_fashion/src/constants/properties.dart';
 import 'package:s_fashion/src/modules/products/logic/arrival_product/arrival_product_bloc.dart';
@@ -44,13 +45,23 @@ class ProductsScreen extends StatelessWidget {
     BlocProvider.of<SaleProductBloc>(context).add(const LoadSaleProducEvent());
     BlocProvider.of<HotProductBloc>(context).add(const LoadHotProducEvent());
 
+    void navigateAuthScreen() {
+      context.router.push(const AuthRoute());
+    }
+
     return Scaffold(
       appBar: AppBar(
         toolbarHeight: 66,
         elevation: 0,
-        title: Text(
-          'SFashion',
-          style: Style.styleLogo.copyWith(fontSize: 23),
+        title: TextButton(
+          onPressed: navigateAuthScreen,
+          child: Text(
+            'SFashion',
+            style: Style.styleLogo.copyWith(
+              fontSize: 23,
+              color: Theme.of(context).colorScheme.background,
+            ),
+          ),
         ),
         actions: const [ActionBar()],
       ),

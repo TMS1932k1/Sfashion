@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:s_fashion/src/widgets/button_cart.dart';
 
 class CartIcon extends StatefulWidget {
   const CartIcon({
@@ -22,15 +22,9 @@ class _CartIconState extends State<CartIcon> {
         maxWidth: !widget.isExpanded ? 50 : 0,
         minWidth: !widget.isExpanded ? 50 : 0,
       ),
-      child: SingleChildScrollView(
+      child: const SingleChildScrollView(
         scrollDirection: Axis.horizontal,
-        child: IconButton(
-          onPressed: () {
-            // Navigate to Cart Screen
-          },
-          icon: const FaIcon(FontAwesomeIcons.cartShopping),
-          iconSize: 16,
-        ),
+        child: ButtonCart(),
       ),
     );
   }

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:s_fashion/src/constants/properties.dart';
+import 'package:s_fashion/src/modules/detail/widgets/ui/button_more.dart';
 
 class DescriptionSection extends StatefulWidget {
   const DescriptionSection({super.key, required this.description});
@@ -58,18 +59,11 @@ class _DescriptionSectionState extends State<DescriptionSection> {
               ),
             ),
           ),
-          SizedBox(
-            width: double.infinity,
-            child: TextButton(
-              onPressed: changeModeExpand,
-              child: Text(
-                isExpanded ? 'Close' : AppLocalizations.of(context)!.more,
-                style: Theme.of(context).textTheme.bodySmall!.copyWith(
-                      color: Theme.of(context).colorScheme.onBackground,
-                    ),
-                textAlign: TextAlign.center,
-              ),
-            ),
+          ButtonMore(
+            text: isExpanded
+                ? AppLocalizations.of(context)!.close
+                : AppLocalizations.of(context)!.more,
+            onClick: changeModeExpand,
           ),
         ],
       ),

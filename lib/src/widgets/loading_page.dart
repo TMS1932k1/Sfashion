@@ -7,8 +7,9 @@ class LoadingPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
+      width: double.infinity,
       padding: const EdgeInsets.all(Properties.kPaddingLarge),
-      child: const CircularProgressIndicator(),
+      child: const Center(child: CircularProgressIndicator()),
     );
   }
 }

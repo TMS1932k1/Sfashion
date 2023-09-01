@@ -9,4 +9,8 @@ class BaseUrl {
   static const getAllSaleProduct = '$domainBase/api/products/top-sale';
   static const getAllHotProduct = '$domainBase/api/products/top-hot';
   static const imgProduct = '$domainBase/img/products/';
+  static const refreshToken = '$domainBase/api/user/refresh';
+  static const imgUser = '$domainBase/img/users/';
+  static reviewsProduct(String idProduct) =>
+      '$domainBase/api/products/$idProduct/reviews/';
 }

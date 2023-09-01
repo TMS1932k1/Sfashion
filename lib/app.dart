@@ -7,15 +7,17 @@ import 'package:s_fashion/src/localization/l10n.dart';
 import 'package:s_fashion/src/modules/auth/logic/auth_bloc.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:s_fashion/src/modules/detail/logic/images_section/index_image_cubit.dart';
+import 'package:s_fashion/src/modules/detail/logic/load_reviews/reviews_bloc.dart';
+import 'package:s_fashion/src/modules/comon_logics/cart/cart_cubit.dart';
 import 'package:s_fashion/src/modules/products/logic/arrival_product/arrival_product_bloc.dart';
 import 'package:s_fashion/src/modules/products/logic/category/category_bloc.dart';
 import 'package:s_fashion/src/modules/products/logic/event/event_sale_bloc.dart';
 import 'package:s_fashion/src/modules/products/logic/hot_product/hot_product_bloc.dart';
 import 'package:s_fashion/src/modules/products/logic/sale_product/sale_product_bloc.dart';
 import 'package:s_fashion/src/modules/products/logic/trend_product/trend_product_bloc.dart';
-import 'package:s_fashion/src/modules/comon_logic/auth/auth_reponse_cubit.dart';
-import 'package:s_fashion/src/modules/comon_logic/localization/set_locale_cubit.dart';
-import 'package:s_fashion/src/modules/comon_logic/localization/set_locale_state.dart';
+import 'package:s_fashion/src/modules/comon_logics/auth/auth_reponse_cubit.dart';
+import 'package:s_fashion/src/modules/comon_logics/localization/set_locale_cubit.dart';
+import 'package:s_fashion/src/modules/comon_logics/localization/set_locale_state.dart';
 
 class MyApp extends StatelessWidget {
   MyApp({super.key});
@@ -36,6 +38,8 @@ class MyApp extends StatelessWidget {
         BlocProvider(create: (context) => SaleProductBloc()),
         BlocProvider(create: (context) => HotProductBloc()),
         BlocProvider(create: (context) => IndexImageCubit()),
+        BlocProvider(create: (context) => ReviewsBloc()),
+        BlocProvider(create: (context) => CartCubit()),
       ],
       child: BlocBuilder<SetLocaleCubit, SetLocaleState>(
         builder: (context, localeState) => MaterialApp.router(
