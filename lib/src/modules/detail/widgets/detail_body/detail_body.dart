@@ -10,7 +10,6 @@ import 'package:s_fashion/src/modules/detail/widgets/detail_body/review_section.
 import 'package:s_fashion/src/modules/detail/widgets/detail_body/text_sale.dart';
 import 'package:s_fashion/src/modules/detail/widgets/ui/divider_vertical.dart';
 import 'package:s_fashion/src/modules/detail/widgets/ui/sizes_bar.dart';
-import 'package:s_fashion/src/utils/utils.dart';
 import 'package:s_fashion/src/widgets/loading_page.dart';
 import 'package:s_fashion/src/widgets/rating_section.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';

@@ -1,6 +1,8 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:s_fashion/src/config/routes/app_router.dart';
 import 'package:s_fashion/src/modules/comon_logics/cart/cart_cubit.dart';
 import 'package:s_fashion/src/modules/comon_logics/cart/cart_state.dart';
 
@@ -9,6 +11,10 @@ class ButtonCart extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    void navigateCartScreen() {
+      context.router.push(const CartRoute());
+    }
+
     return BlocBuilder<CartCubit, CartState>(
       builder: (context, state) {
         final orders = state.orders;
@@ -16,9 +22,7 @@ class ButtonCart extends StatelessWidget {
           alignment: Alignment.center,
           children: [
             IconButton(
-              onPressed: () {
-                // Navigate to Cart Screen
-              },
+              onPressed: navigateCartScreen,
               icon: const FaIcon(FontAwesomeIcons.cartShopping),
               iconSize: 16,
             ),

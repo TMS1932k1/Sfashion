@@ -2,6 +2,7 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:s_fashion/src/models/product.dart';
 import 'package:s_fashion/src/modules/auth/screen/auth_screen.dart';
+import 'package:s_fashion/src/modules/cart/screen/cart_screen.dart';
 import 'package:s_fashion/src/modules/detail/screen/detail_screen.dart';
 import 'package:s_fashion/src/modules/products/screen/products_screen.dart';
 
@@ -14,5 +15,6 @@ class AppRouter extends _$AppRouter {
         AutoRoute(page: ProductsRoute.page, initial: true),
         AutoRoute(page: DetailRoute.page),
         AutoRoute(page: AuthRoute.page),
+        AutoRoute(page: CartRoute.page),
       ];
 }

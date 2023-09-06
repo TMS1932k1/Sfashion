@@ -7,8 +7,16 @@ class CartCubit extends Cubit<CartState> {
   CartCubit() : super(const CartState(orders: []));
 
   void addProduct(Product product, int amount, String size) {
-    final order = Order(product: product, amount: amount, size: size);
-    final currentCart = [order, ...state.orders];
+    final index = state.orders.indexWhere(
+        (order) => order.product.id == product.id && order.size == size);
+
+    if (index >= 0) {
+      increaseAmountAtIndex(index, amount);
+      return;
+    }
+
+    final newOrder = Order(product: product, amount: amount, size: size);
+    final currentCart = [newOrder, ...state.orders];
     emit(CartState(orders: currentCart));
   }
 
@@ -18,15 +26,15 @@ class CartCubit extends Cubit<CartState> {
     emit(CartState(orders: currentCart));
   }
 
-  void increaseAmountAtIndex(int index) {
+  void increaseAmountAtIndex(int index, int count) {
     final currentCart = [...state.orders];
-    currentCart[index].amount += 1;
+    currentCart[index].amount += count;
     emit(CartState(orders: currentCart));
   }
 
-  void descreaseAmountAtIndex(int index) {
+  void descreaseAmountAtIndex(int index, int count) {
     final currentCart = [...state.orders];
-    currentCart[index].amount -= 1;
+    currentCart[index].amount -= count;
     emit(CartState(orders: currentCart));
   }
 }

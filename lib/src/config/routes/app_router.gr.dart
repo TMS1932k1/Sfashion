@@ -21,6 +21,12 @@ abstract class _$AppRouter extends RootStackRouter {
         child: const AuthScreen(),
       );
     },
+    CartRoute.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const CartScreen(),
+      );
+    },
     DetailRoute.name: (routeData) {
       final args = routeData.argsAs<DetailRouteArgs>();
       return AutoRoutePage<dynamic>(
@@ -28,6 +34,7 @@ abstract class _$AppRouter extends RootStackRouter {
         child: DetailScreen(
           key: args.key,
           product: args.product,
+          isShowActionBar: args.isShowActionBar,
         ),
       );
     },
@@ -55,17 +62,33 @@ class AuthRoute extends PageRouteInfo<void> {
 }
 
 /// generated route for
+/// [CartScreen]
+class CartRoute extends PageRouteInfo<void> {
+  const CartRoute({List<PageRouteInfo>? children})
+      : super(
+          CartRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'CartRoute';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
+}
+
+/// generated route for
 /// [DetailScreen]
 class DetailRoute extends PageRouteInfo<DetailRouteArgs> {
   DetailRoute({
     Key? key,
     required Product product,
+    bool isShowActionBar = true,
     List<PageRouteInfo>? children,
   }) : super(
           DetailRoute.name,
           args: DetailRouteArgs(
             key: key,
             product: product,
+            isShowActionBar: isShowActionBar,
           ),
           initialChildren: children,
         );
@@ -79,15 +102,18 @@ class DetailRouteArgs {
   const DetailRouteArgs({
     this.key,
     required this.product,
+    this.isShowActionBar = true,
   });
 
   final Key? key;
 
   final Product product;
 
+  final bool isShowActionBar;
+
   @override
   String toString() {
-    return 'DetailRouteArgs{key: $key, product: $product}';
+    return 'DetailRouteArgs{key: $key, product: $product, isShowActionBar: $isShowActionBar}';
   }
 }
 

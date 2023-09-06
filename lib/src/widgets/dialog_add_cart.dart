@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:s_fashion/src/constants/my_images.dart';
 import 'package:s_fashion/src/constants/properties.dart';
 import 'package:s_fashion/src/models/product.dart';
@@ -8,16 +7,21 @@ import 'package:s_fashion/src/modules/comon_logics/cart/cart_cubit.dart';
 import 'package:s_fashion/src/modules/detail/widgets/detail_body/text_sale.dart';
 import 'package:s_fashion/src/modules/detail/widgets/ui/sizes_bar.dart';
 import 'package:s_fashion/src/utils/utils.dart';
+import 'package:s_fashion/src/widgets/amount_bar.dart';
 import 'package:s_fashion/src/widgets/submit_button.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+
+enum TypeShowDialog { add, buy }
 
 class DialogAddCart extends StatefulWidget {
   const DialogAddCart({
     super.key,
     required this.product,
+    this.type = TypeShowDialog.add,
   });
 
   final Product product;
+  final TypeShowDialog type;
 
   @override
   State<DialogAddCart> createState() => _DialogAddCartState();
@@ -42,8 +46,20 @@ class _DialogAddCartState extends State<DialogAddCart> {
       amount,
       size,
     );
+
+    ScaffoldMessenger.of(context).hideCurrentSnackBar();
+    ScaffoldMessenger.of(context).showSnackBar(
+      Utils.getSnackBar(
+        context,
+        'Add successlly order',
+        TypeSnackBar.success,
+      ),
+    );
+
     Navigator.of(context).pop(true);
   }
+
+  void makeBill() {}
 
   void setSize(int index) {
     final newSize = widget.product.sizes[index];
@@ -74,6 +90,14 @@ class _DialogAddCartState extends State<DialogAddCart> {
 
   @override
   Widget build(BuildContext context) {
+    var titleButton = AppLocalizations.of(context)!.add_cart;
+    var onClick = addCart;
+
+    if (widget.type == TypeShowDialog.buy) {
+      titleButton = AppLocalizations.of(context)!.buy_now;
+      onClick = makeBill;
+    }
+
     return Dialog(
       backgroundColor: Theme.of(context).colorScheme.background,
       child: Column(
@@ -117,36 +141,10 @@ class _DialogAddCartState extends State<DialogAddCart> {
                             color: Theme.of(context).colorScheme.onBackground,
                           ),
                     ),
-                    Row(
-                      children: [
-                        GestureDetector(
-                          onTap: () => plusAmount(-1),
-                          child: const FaIcon(
-                            FontAwesomeIcons.minus,
-                            size: Properties.sizeStar,
-                          ),
-                        ),
-                        const SizedBox(width: Properties.kPaddingMedium),
-                        Text(
-                          amount.toString(),
-                          textAlign: TextAlign.center,
-                          style: Theme.of(context)
-                              .textTheme
-                              .bodyMedium!
-                              .copyWith(
-                                color:
-                                    Theme.of(context).colorScheme.onBackground,
-                              ),
-                        ),
-                        const SizedBox(width: Properties.kPaddingMedium),
-                        GestureDetector(
-                          onTap: () => plusAmount(1),
-                          child: const FaIcon(
-                            FontAwesomeIcons.plus,
-                            size: Properties.sizeStar,
-                          ),
-                        ),
-                      ],
+                    AmountBar(
+                      amount: amount,
+                      onIncrease: () => plusAmount(1),
+                      onDescrease: () => plusAmount(-1),
                     ),
                   ],
                 ),
@@ -190,8 +188,8 @@ class _DialogAddCartState extends State<DialogAddCart> {
                 ),
                 const SizedBox(height: Properties.kPaddingSmall),
                 SubmitButton(
-                  title: AppLocalizations.of(context)!.add_cart,
-                  onClick: addCart,
+                  title: titleButton,
+                  onClick: onClick,
                 ),
               ],
             ),

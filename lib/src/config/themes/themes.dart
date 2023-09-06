@@ -17,6 +17,7 @@ class XTheme {
           labelSmall: Style.labelSmall,
           bodyMedium: Style.bodyMedium,
           bodySmall: Style.bodySmall,
+          bodyLarge: Style.bodyLarge,
         ),
       );
   static ThemeData dark() => ThemeData.dark();

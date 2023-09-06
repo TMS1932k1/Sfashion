@@ -34,5 +34,11 @@
     "review": "Review",
     "close": "Close",
     "sizes": "Sizes",
-    "price": "Price"
+    "price": "Price",
+    "total": "Total",
+    "empty_cart": "Your orders is empty",
+    "confirm_remove": "Confirm remove",
+    "mes_confirm_remove": "Are you sure remove this order?",
+    "cancle": "Cancle",
+    "confirm": "Confirm"
 }

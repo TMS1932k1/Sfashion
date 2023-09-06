@@ -11,4 +11,5 @@ class MyColors {
   static Color colorBrown = HexColor('#34251f');
   static Color colorTransparent = Colors.transparent;
   static Color colorRed = Colors.red;
+  static Color colorGreen = Colors.green;
 }

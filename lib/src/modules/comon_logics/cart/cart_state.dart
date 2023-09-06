@@ -1,4 +1,5 @@
 import 'package:equatable/equatable.dart';
+import 'package:flutter/material.dart';
 import 'package:s_fashion/src/models/order.dart';
 
 class CartState extends Equatable {
@@ -7,5 +8,5 @@ class CartState extends Equatable {
   const CartState({required this.orders});
 
   @override
-  List<Object?> get props => [orders];
+  List<Object?> get props => [orders, UniqueKey()];
 }

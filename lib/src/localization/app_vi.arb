@@ -34,5 +34,11 @@
     "review": "Đánh giá",
     "close": "Đóng",
     "sizes": "Kích thước",
-    "price": "GIá"
+    "price": "GIá",
+    "total": "Tổng",
+    "empty_cart": "Giỏ hàng của bạn đang trống",
+    "confirm_remove": "Xác nhận xóa",
+    "mes_confirm_remove": "Bạn chắc muốn xóa đơn này?",
+    "cancle": "Hủy",
+    "confirm": "Xác nhận"
 }

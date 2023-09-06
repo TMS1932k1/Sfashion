@@ -13,9 +13,11 @@ class DetailScreen extends StatelessWidget {
   const DetailScreen({
     super.key,
     required this.product,
+    this.isShowActionBar = true,
   });
 
   final Product product;
+  final bool isShowActionBar;
 
   @override
   Widget build(BuildContext context) {
@@ -26,10 +28,20 @@ class DetailScreen extends StatelessWidget {
       );
     }
 
+    void buyNow(Product product) {
+      showDialog(
+        context: context,
+        builder: (context) => DialogAddCart(
+          product: product,
+          type: TypeShowDialog.buy,
+        ),
+      );
+    }
+
     return Scaffold(
       appBar: AppBar(
         elevation: 0,
-        actions: const [ButtonCart()],
+        actions: isShowActionBar ? const [ButtonCart()] : null,
       ),
       body: Column(
         mainAxisSize: MainAxisSize.max,
@@ -58,7 +70,7 @@ class DetailScreen extends StatelessWidget {
           ),
           ButtonsSubmit(
             addCart: () => addCart(product),
-            buyProduct: () {},
+            buyProduct: () => buyNow(product),
           ),
         ],
       ),

@@ -34,4 +34,9 @@ class Style {
     fontFamily: Font.openSansCondensed,
     fontSize: 16,
   );
+
+  static TextStyle bodyLarge = const TextStyle(
+    fontFamily: Font.openSansCondensed,
+    fontSize: 20,
+  );
 }
