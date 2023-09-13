@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:s_fashion/src/config/routes/app_router.dart';
-import 'package:s_fashion/src/modules/comon_logics/cart/cart_cubit.dart';
+import 'package:s_fashion/src/modules/comon_logics/cart/cart_bloc.dart';
 import 'package:s_fashion/src/modules/comon_logics/cart/cart_state.dart';
 
 class ButtonCart extends StatelessWidget {
@@ -15,7 +15,7 @@ class ButtonCart extends StatelessWidget {
       context.router.push(const CartRoute());
     }
 
-    return BlocBuilder<CartCubit, CartState>(
+    return BlocBuilder<CartBloc, CartState>(
       builder: (context, state) {
         final orders = state.orders;
         return Stack(

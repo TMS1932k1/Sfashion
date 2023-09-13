@@ -21,7 +21,6 @@ class HotProductQuery {
       }
     } catch (e) {
       logger.e(e.toString());
-      return ListProductReponse.error('Failured in get hot products');
     }
     return ListProductReponse.error('Failured in get hot products');
   }

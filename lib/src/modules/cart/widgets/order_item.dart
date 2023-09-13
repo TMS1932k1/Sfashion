@@ -63,7 +63,7 @@ class OrderItem extends StatelessWidget {
         width: double.infinity,
         margin: const EdgeInsets.symmetric(vertical: Properties.kPaddingSmall),
         child: Card(
-          elevation: 2,
+          elevation: 1,
           child: SizedBox(
             height: 140,
             child: Row(

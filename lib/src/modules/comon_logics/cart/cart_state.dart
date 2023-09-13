@@ -10,3 +10,18 @@ class CartState extends Equatable {
   @override
   List<Object?> get props => [orders, UniqueKey()];
 }
+
+class LoadingGetCart extends CartState {
+  const LoadingGetCart() : super(orders: const []);
+}
+
+class LoadedgGetCart extends CartState {
+  const LoadedgGetCart({required List<Order> orders}) : super(orders: orders);
+}
+
+class ErrorCart extends CartState {
+  final String errorMes;
+
+  const ErrorCart({required List<Order> orders, required this.errorMes})
+      : super(orders: orders);
+}

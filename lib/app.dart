@@ -6,9 +6,9 @@ import 'package:s_fashion/src/config/themes/themes.dart';
 import 'package:s_fashion/src/localization/l10n.dart';
 import 'package:s_fashion/src/modules/auth/logic/auth_bloc.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:s_fashion/src/modules/comon_logics/cart/cart_bloc.dart';
 import 'package:s_fashion/src/modules/detail/logic/images_section/index_image_cubit.dart';
 import 'package:s_fashion/src/modules/detail/logic/load_reviews/reviews_bloc.dart';
-import 'package:s_fashion/src/modules/comon_logics/cart/cart_cubit.dart';
 import 'package:s_fashion/src/modules/products/logic/arrival_product/arrival_product_bloc.dart';
 import 'package:s_fashion/src/modules/products/logic/category/category_bloc.dart';
 import 'package:s_fashion/src/modules/products/logic/event/event_sale_bloc.dart';
@@ -39,7 +39,7 @@ class MyApp extends StatelessWidget {
         BlocProvider(create: (context) => HotProductBloc()),
         BlocProvider(create: (context) => IndexImageCubit()),
         BlocProvider(create: (context) => ReviewsBloc()),
-        BlocProvider(create: (context) => CartCubit()),
+        BlocProvider(create: (context) => CartBloc()),
       ],
       child: BlocBuilder<SetLocaleCubit, SetLocaleState>(
         builder: (context, localeState) => MaterialApp.router(

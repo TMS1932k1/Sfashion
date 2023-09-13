@@ -9,7 +9,8 @@ import 'package:s_fashion/src/models/product.dart';
 import 'package:s_fashion/src/modules/cart/logic/orders_provider.dart';
 import 'package:s_fashion/src/modules/cart/widgets/order_item.dart';
 import 'package:s_fashion/src/modules/cart/widgets/total_bar.dart';
-import 'package:s_fashion/src/modules/comon_logics/cart/cart_cubit.dart';
+import 'package:s_fashion/src/modules/comon_logics/cart/cart_bloc.dart';
+import 'package:s_fashion/src/modules/comon_logics/cart/cart_event.dart';
 import 'package:s_fashion/src/modules/comon_logics/cart/cart_state.dart';
 import 'package:s_fashion/src/widgets/dialog_confirm.dart';
 import 'package:s_fashion/src/widgets/submit_button.dart';
@@ -31,7 +32,7 @@ class CartScreen extends StatelessWidget {
       ),
       body: Container(
         padding: const EdgeInsets.all(Properties.kPaddingSmall),
-        child: BlocBuilder<CartCubit, CartState>(
+        child: BlocBuilder<CartBloc, CartState>(
           builder: (context, state) {
             final orders = state.orders;
 
@@ -43,7 +44,9 @@ class CartScreen extends StatelessWidget {
                   subtitle: AppLocalizations.of(context)!.mes_confirm_remove,
                   onCancle: () => context.router.pop(),
                   onConfirm: () {
-                    BlocProvider.of<CartCubit>(context).removeProduct(index);
+                    BlocProvider.of<CartBloc>(context).add(
+                      RemoveCartEvent(index: index),
+                    );
                     context.router.pop();
                   },
                 ),

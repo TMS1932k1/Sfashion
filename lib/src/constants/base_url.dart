@@ -13,4 +13,6 @@ class BaseUrl {
   static const imgUser = '$domainBase/img/users/';
   static reviewsProduct(String idProduct) =>
       '$domainBase/api/products/$idProduct/reviews/';
+  static getInfoProduct(String idProduct) =>
+      '$domainBase/api/products/$idProduct';
 }

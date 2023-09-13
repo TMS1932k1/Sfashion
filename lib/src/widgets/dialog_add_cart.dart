@@ -3,7 +3,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:s_fashion/src/constants/my_images.dart';
 import 'package:s_fashion/src/constants/properties.dart';
 import 'package:s_fashion/src/models/product.dart';
-import 'package:s_fashion/src/modules/comon_logics/cart/cart_cubit.dart';
+import 'package:s_fashion/src/modules/comon_logics/cart/cart_bloc.dart';
+import 'package:s_fashion/src/modules/comon_logics/cart/cart_event.dart';
 import 'package:s_fashion/src/modules/detail/widgets/detail_body/text_sale.dart';
 import 'package:s_fashion/src/modules/detail/widgets/ui/sizes_bar.dart';
 import 'package:s_fashion/src/utils/utils.dart';
@@ -41,10 +42,12 @@ class _DialogAddCartState extends State<DialogAddCart> {
   }
 
   void addCart() {
-    BlocProvider.of<CartCubit>(context).addProduct(
-      widget.product,
-      amount,
-      size,
+    BlocProvider.of<CartBloc>(context).add(
+      AddCartEvent(
+        product: widget.product,
+        amount: amount,
+        size: size,
+      ),
     );
 
     ScaffoldMessenger.of(context).hideCurrentSnackBar();

@@ -6,6 +6,7 @@ import 'package:s_fashion/src/constants/properties.dart';
 import 'package:s_fashion/src/models/product.dart';
 import 'package:s_fashion/src/modules/products/widgets/list_products/product_item.dart';
 import 'package:s_fashion/src/modules/products/widgets/ui/text_more.dart';
+import 'package:s_fashion/src/widgets/dialog_add_cart.dart';
 
 class ListSpecialProdcuts extends StatelessWidget {
   const ListSpecialProdcuts({
@@ -23,6 +24,13 @@ class ListSpecialProdcuts extends StatelessWidget {
   Widget build(BuildContext context) {
     void onSelectProduct(Product product) {
       context.router.push(DetailRoute(product: product));
+    }
+
+    void onAddCart(Product product) {
+      showDialog(
+        context: context,
+        builder: (context) => DialogAddCart(product: product),
+      );
     }
 
     return Container(
@@ -65,6 +73,7 @@ class ListSpecialProdcuts extends StatelessWidget {
                         key: UniqueKey(),
                         product: product,
                         onSelected: onSelectProduct,
+                        onAddCart: onAddCart,
                       ),
                     )
                     .toList(),
